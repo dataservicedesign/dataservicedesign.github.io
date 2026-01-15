@@ -1,9 +1,8 @@
 .nav {
-  background: linear-gradient(180deg, #ff6333 70%, #ff633300 100%);
-  grid-column: span 5;
+  background: linear-gradient(180deg, var(--main) 70%, #ff633300 100%);
   position: sticky;
   top: 0;
-  padding: 1rem 0;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   font-family: "Inter", sans-serif;

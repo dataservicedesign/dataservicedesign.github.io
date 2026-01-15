@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
-import Head from "next/head";
 import Navigation from "../../components/nav";
 import { getSortedPostsData } from "../../lib/projectPost";
 import Footer from "../../components/footer";
@@ -8,63 +8,45 @@ import Image from "next/image";
 import Link from "next/link";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
+import SeoHead from "../../components/SeoHead";
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData("seminars/202425");
-  return {
-    props: {
-      allPostsData,
-    },
-  };
+    const allPostsData = getSortedPostsData("seminars/202425");
+    return {
+        props: {
+            allPostsData,
+        },
+    };
 }
 
 export default function Home({ allPostsData }) {
-  const [formattedDates, setFormattedDates] = useState("");
+    const router = useRouter();
 
-  useEffect(() => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    const dates = allPostsData.map((post) => {
-      const date = new Date(post.date);
-      return date.toLocaleDateString("en-US", options);
-    });
-    setFormattedDates(dates);
-  }, [allPostsData]);
+    useEffect(() => {
+        router.push("/");
+    }, [router]);
 
-  return (
-      <>
-          <Head>
-              <title>Data and Service Design - Politecnico Milano</title>
-              <meta name="title" content="Data and Service Design - Politecnico Milano" key="title" />
-              <meta
-                  name="description"
-                  content="A course on data practices and service design at Politecnico Milano School of Design, Master in Product Service System Design"
-                  key="description"
-              />
+    return null;
 
-              <meta property="og:type" content="website" key="og:type" />
-              <meta property="og:url" content="https://dataservicedesign.github.io/syllabus" key="og:url" />
-              <meta property="og:title" content="Data and Service Design - Politecnico Milano" key="og:title" />
-              <meta
-                  property="og:description"
-                  content="A course on data practices and service design at Politecnico Milano School of Design, Master in Product Service System Design"
-                  key="og:description"
-              />
-              <meta property="og:image" content="/syllabus/og-image.png" key="og:image" />
+    const [formattedDates, setFormattedDates] = useState("");
 
-              <meta property="twitter:card" content="summary_large_image" key="twitter:card" />
-              <meta property="twitter:url" content="https://dataservicedesign.github.io/syllabus" key="twitter:url" />
-              <meta property="twitter:title" content="Data and Service Design - Politecnico Milano" key="twitter:title" />
-              <meta
-                  property="twitter:description"
-                  content="A course on data practices and service design at Politecnico Milano School of Design, Master in Product Service System Design"
-                  key="twitter:description"
-              />
-              <meta property="twitter:image" content="/syllabus/og-image.png" key="twitter:image" />
-          </Head>
-          <main>
-              <Navigation />
+    useEffect(() => {
+        const options = { year: "numeric", month: "long", day: "numeric" };
+        const dates = allPostsData.map((post) => {
+            const date = new Date(post.date);
+            return date.toLocaleDateString("en-US", options);
+        });
+        setFormattedDates(dates);
+    }, [allPostsData]);
 
-              <div className={"abstract"}>
+    return (
+        <>
+            <SeoHead />
+            <Navigation />
+            <main>
+                <div className={"abstract"}>Site under construction. The 2025-26 syllabus will be available soon.</div>
+
+                {/* <div className={"abstract"}>
                   <p>
                       The course <b>“Data and Service Design: Designing Data-centric Services”</b> is part of the Master of Product Service System
                       Design of the School of Design (A.Y. 2024/2025). It intends to provide service design students with the conceptual and
@@ -96,8 +78,8 @@ export default function Home({ allPostsData }) {
                       Starting from these premises, the class will approach the course topic through a three-stage learning framework. Each stage will
                       include dedicated lectures, hands-on activities and involve specific guest experts.
                   </p>
-              </div>
-              <div>
+              </div> */}
+                {/* <div>
                   <Image src={"/identity/202425/cover.png"} width={0} height={0} sizes="100%" style={{ width: "100%", height: "auto" }} />
               </div>
               <div style={{ gridColumnStart: 1, gridColumnEnd: 4 }}>
@@ -243,14 +225,6 @@ export default function Home({ allPostsData }) {
                   <h4>Teaching assistant</h4>
               </div>
               <div>
-                  {/* <div style={{ width: "100px" }}>
-            <Zoom classDialog={"custom-zoom"}>
-              <img
-                src="/syllabus/andrea-benedetti.png"
-                style={{ width: "100%", marginBottom: "0.5rem" }}
-              />
-            </Zoom>
-          </div> */}
                   <h4>Marianne Fosca Stahl</h4>
                   <p>
                       Industrial designer with a degree in Arts from Pontificia Universidad Católica del Perú for over ten years back in Perú, and
@@ -258,9 +232,9 @@ export default function Home({ allPostsData }) {
                       design life-centric solutions, she recently graduated from the Specialized Master of Service Design in POLI.design and moved to
                       Milan to start anew.
                   </p>
-              </div>
-          </main>
-          <Footer />
-      </>
-  );
+              </div> */}
+            </main>
+            <Footer />
+        </>
+    );
 }

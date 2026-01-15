@@ -4,16 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 function Footer() {
-  return (
-    <div className={"container"}>
-      <div className={styles.footer}>
-        <p><Link href="https://www.polimi.it/"><Image src="/polimi-logo.webp" alt="Politecnico di Milano" width={160} height={58}/></Link>
-        </p>
-        <p><Link href="https://www.pssd.polimi.it/">Master of Product Service System Design</Link></p>
-        <p>Academic Year 2024-2025, 2nd semester</p>
-      </div>
-    </div>
-  );
+    return (
+        <div className={"container"}>
+            <div className={styles.footer}>
+                <p>
+                    <Link href="https://www.polimi.it/">
+                        <Image src="/polimi-logo.webp" alt="Politecnico di Milano" width={160} height={58} />
+                    </Link>
+                </p>
+                <p>
+                    <Link href="https://www.pssd.polimi.it/">Master of Product Service System Design</Link>
+                </p>
+            </div>
+        </div>
+    );
 }
 
 export default Footer;
