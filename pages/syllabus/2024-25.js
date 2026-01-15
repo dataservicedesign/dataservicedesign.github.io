@@ -10,7 +10,7 @@ import "react-medium-image-zoom/dist/styles.css";
 import SeoHead from "../../components/SeoHead";
 
 export async function getStaticProps() {
-    const allPostsData = getSortedPostsData("seminars/202425");
+    const allPostsData = getSortedPostsData(["seminars", "202425"]);
     return {
         props: {
             allPostsData,
@@ -38,7 +38,7 @@ export default function Home({ allPostsData }) {
                 <div className={"abstract"}>
                     <h1>Data and Service Design</h1>
                     <h2>Academic Year 2024-2025, 2nd semester</h2>
-                    <div style={{height: "3em"}}></div>
+                    <div style={{ height: "3em" }}></div>
                     <p>
                         The course <b>“Data and Service Design: Designing Data-centric Services”</b> is part of the Master of Product Service System
                         Design of the School of Design (A.Y. 2024/2025). It intends to provide service design students with the conceptual and
@@ -72,9 +72,9 @@ export default function Home({ allPostsData }) {
                     </p>
                 </div>
                 <div>
-                    <Image src={"/identity/202425/cover.png"} width={0} height={0} sizes="100%" style={{ width: "100%", height: "auto"}} />
+                    <Image src={"/identity/202425/cover.png"} width={0} height={0} sizes="100%" style={{ width: "100%", height: "auto" }} />
                 </div>
-                <div className='abstract'>
+                <div className="abstract">
                     <p>
                         Private and public organizations harness vast quantities of data to optimize their services. The adoption of data-driven
                         services has become prominent across multiple sectors, including welfare, healthcare, taxation, and mobility.
