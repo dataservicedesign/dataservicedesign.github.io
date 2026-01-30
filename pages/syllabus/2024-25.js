@@ -176,7 +176,7 @@ export default function Home({ allPostsData }) {
                         </div>
                         <h4>{formattedDates[index]}</h4>
                         <h4>
-                            <Link href={`seminars/202425/${s.id}`}>
+                            <Link href={`/seminars/202425/${s.id}`}>
                                 {s.name} - {s.affiliation}
                             </Link>
                         </h4>

@@ -1,6 +1,6 @@
 ---
 id: "gabriele-colombo"
-image: "seminars/gabriele-colombo.png"
+image: "/seminars/202425/gabriele-colombo.png"
 name: "Gabriele Colombo"
 date: "2025-03-20"
 affiliation: "Politecnico di Milano"

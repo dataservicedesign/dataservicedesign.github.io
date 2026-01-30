@@ -1,6 +1,6 @@
 ---
 id: "agata-brilli"
-image: "seminars/agata-brilli.png"
+image: "/seminars/202425/agata-brilli.png"
 name: "Agata Brilli"
 date: "2025-03-13"
 affiliation: "PagoPA"
